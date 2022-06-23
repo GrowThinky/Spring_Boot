@@ -15,6 +15,7 @@ public class DataLoader {
 
         HashMap<String,Betriebsstelle> betriebsstellen = new HashMap();
 
+        // load data from csv
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         File file = new File(classLoader.getResource("DBNetz-Betriebsstellenverzeichnis-Stand2021-10.csv").getFile());
         List<List<String>> records= new ArrayList<>();
@@ -26,17 +27,14 @@ public class DataLoader {
             e.printStackTrace();
         }
         for(List<String> line : records){
-            String[] e = new String[line.size()];
-            int i = 0;
-            for(String cell : line){
-                e[i] = cell.toLowerCase();
-                i++;
-            }
-            betriebsstellen.put(e[1],new Betriebsstelle(e[2],e[3],e[5]));
+          // poplate hashmap with data
+            betriebsstellen.put(line.get(1).toLowerCase(),new Betriebsstelle(line.get(2),line.get(3),line.get(5)));
         }
         return betriebsstellen;
     }
 
+    /** Helper function to read ; separated lines in csv file
+     */
     private List<String> getRecordFromLine(String line) {
         List<String> values = new ArrayList<String>();
         try (Scanner rowScanner = new Scanner(line)) {

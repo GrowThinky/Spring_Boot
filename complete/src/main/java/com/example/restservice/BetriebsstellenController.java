@@ -28,7 +28,7 @@ public class BetriebsstellenController {
 	@ResponseStatus(code = HttpStatus.OK)
 	public Betriebsstelle betriebsstelle(@RequestParam(value = "code", defaultValue = "aamp") String code) {
 		Betriebsstelle result = null;
-		result = betriebsstellen.get(code);
+		result = betriebsstellen.get(code.toLowerCase());
 		 if(result == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
