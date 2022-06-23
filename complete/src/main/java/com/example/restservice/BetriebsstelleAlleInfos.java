@@ -14,7 +14,7 @@ public class BetriebsstelleAlleInfos extends Betriebsstelle {
 
     public BetriebsstelleAlleInfos(String plc, String code, String name, String kurzname, String typ, String typ_k, String betriebszustand, String datumAb, String datumBis, String niederlassung, String regionalbereich, String letzteAenderung) {
 
-        super(code,name,kurzname,typ);
+        super(name,kurzname,typ);
         this.plc = plc;
         this.typ_k = typ_k;
         this.betriebszustand = betriebszustand;

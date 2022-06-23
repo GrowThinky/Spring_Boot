@@ -16,7 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class BetriebsstellenController {
 
 	DataLoader dataLoader;
-	List<Betriebsstelle> betriebsstellen;
+	HashMap<String,Betriebsstelle> betriebsstellen;
 
 	public BetriebsstellenController(){
 		dataLoader = new DataLoader();
@@ -28,23 +28,13 @@ public class BetriebsstellenController {
 	@ResponseStatus(code = HttpStatus.OK)
 	public Betriebsstelle betriebsstelle(@RequestParam(value = "code", defaultValue = "aamp") String code) {
 		Betriebsstelle result = null;
-		try {
-			result = findeBetriebsstelle(betriebsstellen,code);
-		} catch (IndexOutOfBoundsException e) {
+		result = betriebsstellen.get(code);
+		 if(result == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return result;
 	}
 
-	/** Gibt die gefundene Betriebsstelle zurück, wenn die Betriebsstelle mit übergebener Abkürzung in
-	 * @param rl100Code Abkürzung der gesuchten Betriebsstelle
-	 * @param  list zu durchsuchende Liste
-	 */
-	Betriebsstelle findeBetriebsstelle(List<Betriebsstelle> list, String rl100Code) throws IndexOutOfBoundsException {
-		List<Betriebsstelle> result = list.stream()
-				.filter(item -> item.getCode().equals(rl100Code.toLowerCase()))
-				.collect(Collectors.toList());
-		return result.get(0);
-	}
+
 
 }

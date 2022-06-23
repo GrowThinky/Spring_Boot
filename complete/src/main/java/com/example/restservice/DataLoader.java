@@ -3,6 +3,7 @@ package com.example.restservice;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,9 +11,10 @@ import java.util.Scanner;
  * Class loads the data from csv file and provides Dataholder Class Betriebsstelle as list.
  */
 public class DataLoader {
-    public List<Betriebsstelle> initializeData(){
+    public HashMap<String,Betriebsstelle> initializeData(){
 
-        List<Betriebsstelle> betriebsstellen = new ArrayList<>();
+        HashMap<String,Betriebsstelle> betriebsstellen = new HashMap();
+
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         File file = new File(classLoader.getResource("DBNetz-Betriebsstellenverzeichnis-Stand2021-10.csv").getFile());
         List<List<String>> records= new ArrayList<>();
@@ -30,8 +32,7 @@ public class DataLoader {
                 e[i] = cell.toLowerCase();
                 i++;
             }
-            betriebsstellen.add(new Betriebsstelle(e[1],e[2],e[3],e[5]));
-            // betriebsstellen.add(new BetriebsstelleAlleInfos(e[0],e[1],e[2],e[3],e[4],e[5],e[6],e[7],e[8],e[9],e[10],e[11]));
+            betriebsstellen.put(e[1],new Betriebsstelle(e[2],e[3],e[5]));
         }
         return betriebsstellen;
     }
