@@ -42,7 +42,7 @@ public class BetriebsstellenController {
 	 */
 	Betriebsstelle findeBetriebsstelle(List<Betriebsstelle> list, String rl100Code) throws IndexOutOfBoundsException {
 		List<Betriebsstelle> result = list.stream()
-				.filter(item -> item.getRl100Code().equals(rl100Code.toLowerCase()))
+				.filter(item -> item.getCode().equals(rl100Code.toLowerCase()))
 				.collect(Collectors.toList());
 		return result.get(0);
 	}

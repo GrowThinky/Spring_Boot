@@ -37,7 +37,7 @@ public class BetriebsstelleControllerTests {
 
 	@Autowired
 	private MockMvc mockMvc;
-	private String json = "{\"rl100Code\":\"aamp\",\"rl100Lang\":\"hamburg anckelmannsplatz\",\"rl100Kurz\":\"anckelmannsplatz\",\"typ_l\":\"üst\"}";
+	private String json = "{\"code\":\"aamp\",\"name\":\"hamburg anckelmannsplatz\",\"kurzname\":\"anckelmannsplatz\",\"typ\":\"üst\"}";
 
 	@Test
 	public void testRequestShoulBeSuccessful() throws Exception {

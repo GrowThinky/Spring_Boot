@@ -3,35 +3,34 @@ package com.example.restservice;
 public class Betriebsstelle {
 
 
-	private final String rl100Code;
-	private final String rl100Lang;
-	private final String rl100Kurz;
-	private final String typ_l;
+	private final String code;
+	private final String name;
+	private final String kurzname;
+	private final String typ;
 
 
-
-	public Betriebsstelle(String rl100Code, String rl100Lang, String rl100Kurz, String typ_l) {
-		this.rl100Code = rl100Code;
-		this.rl100Lang = rl100Lang;
-		this.rl100Kurz = rl100Kurz;
-		this.typ_l = typ_l;
+	public Betriebsstelle(String code, String name, String kurzname, String typ) {
+		this.code = code;
+		this.name = name;
+		this.kurzname = kurzname;
+		this.typ = typ;
 	}
 
 
-	public String getRl100Code() {
-		return rl100Code;
+	public String getCode() {
+		return code;
 	}
 
-	public String getRl100Lang() {
-		return rl100Lang;
+	public String getName() {
+		return name;
 	}
 
-	public String getRl100Kurz() {
-		return rl100Kurz;
+	public String getKurzname() {
+		return kurzname;
 	}
 
-	public String getTyp_l() {
-		return typ_l;
+	public String getTyp() {
+		return typ;
 	}
 
 

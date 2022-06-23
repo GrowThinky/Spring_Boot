@@ -12,9 +12,9 @@ public class BetriebsstelleAlleInfos extends Betriebsstelle {
     private final String letzteAenderung;
 
 
-    public BetriebsstelleAlleInfos(String plc, String rl100Code, String rl100Lang, String rl100Kurz, String typ_l, String typ_k, String betriebszustand, String datumAb, String datumBis, String niederlassung, String regionalbereich, String letzteAenderung) {
+    public BetriebsstelleAlleInfos(String plc, String code, String name, String kurzname, String typ, String typ_k, String betriebszustand, String datumAb, String datumBis, String niederlassung, String regionalbereich, String letzteAenderung) {
 
-        super(rl100Code,rl100Lang,rl100Kurz,typ_l);
+        super(code,name,kurzname,typ);
         this.plc = plc;
         this.typ_k = typ_k;
         this.betriebszustand = betriebszustand;
